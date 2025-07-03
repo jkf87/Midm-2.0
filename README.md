@@ -11,7 +11,7 @@
 
 <p align="center">
   🤗 <a href="">Mi:dm 2.0 Models</a> |
-  📜 Mi:dm 2.0 Technical Report* |
+  📜 <a href="https://github.com/K-intelligence-Midm/Midm-2.0/blob/2a9b8509fa52b599fdd72fbc0ccaae80be8be1f5/Mi_dm_2_0_technical_report.pdf"> Mi:dm 2.0 Technical Report</a> |
   📕 Mi:dm 2.0 Technical Blog*
 </p>
 
