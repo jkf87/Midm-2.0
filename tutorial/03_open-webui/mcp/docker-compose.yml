@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    volumes:
+      - open-webui-data:/app/backend/data
+    environment:
+      - WEBUI_AUTH=false
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mcp
+    networks:
+      - mcp-net
+
+  mcp:
+    container_name: mcp
+    build:
+      context: ./mcp
+    ports:
+      - "8000:8000"
+    networks:
+      - mcp-net
+
+volumes:
+  open-webui-data:
+
+networks:
+  mcp-net:
+    driver: bridge
