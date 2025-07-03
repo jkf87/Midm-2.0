@@ -57,8 +57,7 @@ Mi:dm 2.0 is released in two versions:
   It extends an 8B-scale model by applying the Depth-up Scaling (DuS) method, making it suitable for real-world applications that require both performance and versatility.
 
 - **Mi:dm 2.0-Mini**  
-  A lightweight 2.3B parameter dense model optimized for on-device environments and systems with limited GPU resources.  
-  It was derived from the Base model through pruning and distillation to enable compact deployment.
+  A lightweight 2.3B parameter dense model optimized for on-device environments and systems with limited GPU resources. It was derived from the Base model through pruning and distillation to enable compact deployment.
 
 >[!Note]
 > Neither the pre-training nor the post-training data includes KT users' data.
