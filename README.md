@@ -1,44 +1,46 @@
-
-<p align="center">
 <br>
-    <picture>
-        <img src="./assets/midm_logo_en.png" width="35%" style="margin: 40px auto;">
-    </picture>
-</br>
+<p align="center">
+  <br>
+  <picture>
+    <img src="./assets/midm_logo_en.png" width="35%">
+  </picture>
+</p>
+
+<!-- 여기에 br 여러 줄로 간격 확보 -->
+<br>
 
 <p align="center">
-🤗 <a href="">Mi:dm 2.0 Models</a> |
-📜 Mi:dm 2.0 Technical Report* |
-📕 Mi:dm 2.0 Technical Blog*
+  🤗 <a href="">Mi:dm 2.0 Models</a> |
+  📜 Mi:dm 2.0 Technical Report* |
+  📕 Mi:dm 2.0 Technical Blog*
 </p>
 
 <p align="center"><sub>*To be released soon</sub></p>
-
-<br>
 
 ## News 📢
 
 - 🔜 _(Coming Soon!) GGUF format model files will be available soon for easier local deployment._  
 - ⚡️`2025/07/04`: Released Mi:dm 2.0 Model collection on Hugging Face🤗.
+
 <br>
 
 ## Table of Contents
 
-- ___Overview___
-    - [Mi:dm 2.0](#midm-20)
-    - [Quickstart](#quickstart)
-    - [Evaluation](#evaluation)
-- ___Usage___
-    - [Run on Your Local Machine](#run-on-your-local-machine)
-        - [llama.cpp](#llamacpp)
-        - [LM Studio](#lm-studio)
-        - [Ollama](#ollama)
-    - [Deployment](#deployment)
-    - [Tutorials](#tutorials)
-- ___More Information___
-    - [Limitation](#limitation)
-    - [License](#license)
-    - [Contact](#contact)
+- **Overview**
+  - [Mi:dm 2.0](#midm-20)
+  - [Quickstart](#quickstart)
+  - [Evaluation](#evaluation)
+- **Usage**
+  - [Run on Your Local Machine](#run-on-your-local-machine)
+    - [llama.cpp](#llamacpp)
+    - [LM Studio](#lm-studio)
+    - [Ollama](#ollama)
+  - [Deployment](#deployment)
+  - [Tutorials](#tutorials)
+- **More Information**
+  - [Limitation](#limitation)
+  - [License](#license)
+  - [Contact](#contact)
 
 <br>
 
@@ -46,17 +48,19 @@
 
 ### Mi:dm 2.0
 
+**Mi:dm 2.0** is a __"Korea-centric AI"__ model developed using KT's proprietary technology. The term __"Korea-centric AI"__ refers to a model that deeply internalizes the unique values, cognitive frameworks, and commonsense reasoning inherent to Korean society. It goes beyond simply processing or generating Korean text—it reflects a deeper understanding of the socio-cultural norms and values that define Korean society.
 
-Mi:dm 2.0 is a __"Korea-centric AI"__ model developed with KT's proprietary technology. __"Korea-centric AI"__ refers to a model that thoroughly internalizes the unique values, cognitive frameworks, and commonsense reasoning intrinsic to Korean society. It is not simply about processing and responding in Korean; it is about the profound understanding that reflects and respects the socio-cultural fabric of Korean norms and values.
+Mi:dm 2.0 is released in two versions:
 
-The newly introduced Mi:dm 2.0 model comes in two versions:
+- **Mi:dm 2.0-Base**  
+  An 11.5B parameter dense model designed to balance model size and performance.  
+  It extends an 8B-scale model by applying the Depth-up Scaling (DuS) method, making it suitable for real-world applications that require both performance and versatility.
 
-* **Mi:dm 2.0-Mini** is a 2.3B parameter Dense small model, designed for seamless use in environments such as on-device settings and low-end GPUs. It was created by pruning and distilling the Base model.
+- **Mi:dm 2.0-Mini**  
+  A lightweight 2.3B parameter dense model optimized for on-device environments and systems with limited GPU resources.  
+  It was derived from the Base model through pruning and distillation to enable compact deployment.
 
-* **Mi:dm 2.0-Base** has 11.5B parameters and is designed to balance model size and performance by expanding an 8B scale model using the DuS (Depth-up Scaling) method. It's a practical model that can be applied to various real-world services, considering both performance and versatility.
-
-
-> [!Note]
+>[!Note]
 > Neither the pre-training nor the post-training data includes KT users' data.
 
 <br>
@@ -113,372 +117,383 @@ print(tokenizer.decode(output[0]))
 
 ### Evaluation
 
+#### Korean
+
+<!-- first half table-->
+<table>
+<tr>
+  <th rowspan="2">Model</th>
+  <th colspan="5" align="center">Society & Culture</th>
+  <th colspan="3" align="center">General Knowledge</th>
+  <th colspan="3" align="center">Instruction Following</th>
+</tr>
+<tr>
+  <th align="center">K-Refer<sup>*</sup></th>
+  <th align="center">K-Refer-Hard<sup>*</sup></th>
+  <th align="center">Ko-Sovereign<sup>*</sup></th>
+  <th align="center">HAERAE</th>
+  <th align="center">Avg.</th>
+  <th align="center">KMMLU</th>
+  <th align="center">Ko-Sovereign<sup>*</sup></th>
+  <th align="center">Avg.</th>
+  <th align="center">Ko-IFEval</th>
+  <th align="center">Ko-MTBench</th>
+  <th align="center">Avg.</th>
+</tr>
+
+<!-- Small Models -->
+<tr>
+  <td><strong>Qwen3-4B</strong></td>
+  <td align="center">53.6</td>
+  <td align="center">42.9</td>
+  <td align="center">35.8</td>
+  <td align="center">50.6</td>
+  <td align="center">45.7</td>
+  <td align="center"><strong>50.6</strong></td>
+  <td align="center"><strong>42.5</strong></td>
+  <td align="center"><strong>46.5</strong></td>
+  <td align="center"><strong>75.9</strong></td>
+  <td align="center">63.0</td>
+  <td align="center">69.4</td>
+</tr>
+<tr>
+  <td><strong>Exaone-3.5-2.4B-inst</strong></td>
+  <td align="center">64.0</td>
+  <td align="center"><strong>67.1</strong></td>
+  <td align="center"><strong>44.4</strong></td>
+  <td align="center">61.3</td>
+  <td align="center"><strong>59.2</strong></td>
+  <td align="center">43.5</td>
+  <td align="center">42.4</td>
+  <td align="center">43.0</td>
+  <td align="center">65.4</td>
+  <td align="center"><u>74.0</u></td>
+  <td align="center">68.9</td>
+</tr>
+<tr>
+  <td><strong>Mi:dm 2.0-Mini-inst</strong></td>
+  <td align="center"><u>66.4</u></td>
+  <td align="center">61.4</td>
+  <td align="center">36.7</td>
+  <td align="center"><u>70.8</u></td>
+  <td align="center">58.8</td>
+  <td align="center">45.1</td>
+  <td align="center">42.4</td>
+  <td align="center">43.8</td>
+  <td align="center"><u>73.3</u></td>
+  <td align="center"><strong>74.0</strong></td>
+  <td align="center"><strong>73.6</strong></td>
+</tr>
+
+<!-- Spacer row -->
+<tr><td colspan="13"> </td></tr>
+
+<!-- Large Models -->
+<tr>
+  <td><strong>Qwen3-14B</strong></td>
+  <td align="center"><u>72.4</u></td>
+  <td align="center">65.7</td>
+  <td align="center"><u>49.8</u></td>
+  <td align="center">68.4</td>
+  <td align="center">64.1</td>
+  <td align="center"><u>55.4</u></td>
+  <td align="center"><u>54.7</u></td>
+  <td align="center"><u>55.1</u></td>
+  <td align="center"><strong>83.6</strong></td>
+  <td align="center">71</td>
+  <td align="center"><u>77.3</u></td>
+</tr>
+<tr>
+  <td><strong>Llama-3.1-8B-inst</strong></td>
+  <td align="center">43.2</td>
+  <td align="center">36.4</td>
+  <td align="center">33.8</td>
+  <td align="center">49.5</td>
+  <td align="center">40.7</td>
+  <td align="center">33.0</td>
+  <td align="center">36.7</td>
+  <td align="center">34.8</td>
+  <td align="center">60.1</td>
+  <td align="center">57</td>
+  <td align="center">58.5</td>
+</tr>
+<tr>
+  <td><strong>Exaone-3.5-7.8B-inst</strong></td>
+  <td align="center">71.6</td>
+  <td align="center"><u>69.3</u></td>
+  <td align="center">46.9</td>
+  <td align="center"><u>72.9</u></td>
+  <td align="center"><u>65.2</u></td>
+  <td align="center">52.6</td>
+  <td align="center">45.6</td>
+  <td align="center">49.1</td>
+  <td align="center">69.1</td>
+  <td align="center"><u>79.6</u></td>
+  <td align="center">74.4</td>
+</tr>
+<tr>
+  <td><strong>Mi:dm 2.0-Base-inst</strong></td>
+  <td align="center"><strong>89.6</strong></td>
+  <td align="center"><strong>86.4</strong></td>
+  <td align="center"><strong>56.3</strong></td>
+  <td align="center"><strong>81.5</strong></td>
+  <td align="center"><strong>78.4</strong></td>
+  <td align="center"><strong>57.3</strong></td>
+  <td align="center"><strong>58.0</strong></td>
+  <td align="center"><strong>57.7</strong></td>
+  <td align="center"><u>82</u></td>
+  <td align="center"><strong>89.7</strong></td>
+  <td align="center"><strong>85.9</strong></td>
+</tr>
+</table>
+
+<!-- second half table-->
+<table>
+<tr>
+  <th rowspan="2" align="center">Model</th>
+  <th colspan="5" align="center">Comprehension</th>
+  <th colspan="5" align="center">Reasoning</th>
+</tr>
+<tr>
+  <th align="center">K-Prag<sup>*</sup></th>
+  <th align="center">K-Refer-Hard<sup>*</sup></th>
+  <th align="center">Ko-Best</th>
+  <th align="center">Ko-Sovereign<sup>*</sup></th>
+  <th align="center">Avg.</th>
+  <th align="center">Ko-Winogrande</th>
+  <th align="center">Ko-Best</th>
+  <th align="center">LogicKor</th>
+  <th align="center">HRM8K</th>
+  <th align="center">Avg.</th>
+</tr>
+
+<!-- Small Models -->
+<tr>
+  <td><strong>Qwen3-4B</strong></td>
+  <td align="center"><strong>73.9<strong></td>
+  <td align="center">56.7</td>
+  <td align="center"><strong>91.5</strong></td>
+  <td align="center"><strong>43.5</strong></td>
+  <td align="center"><strong>66.6</strong></td>
+  <td align="center"><strong>67.5</strong></td>
+  <td align="center"><strong>69.2</strong></td>
+  <td align="center">5.6</td>
+  <td align="center"><strong>56.7</strong></td>
+  <td align="center"><strong>43.8</strong></td>
+</tr>
+<tr>
+  <td><strong>Exaone-3.5-2.4B-inst</strong></td>
+  <td align="center">68.7</td>
+  <td align="center"><strong>58.5</strong></td>
+  <td align="center"><u>87.2</u></td>
+  <td align="center">38.0</td>
+  <td align="center"><u>62.5</u></td>
+  <td align="center">60.3</td>
+  <td align="center">64.1</td>
+  <td align="center">7.4</td>
+  <td align="center">38.5</td>
+  <td align="center">36.7</td>
+</tr>
+<tr>
+  <td><strong>Mi:dm 2.0-Mini-inst</strong></td>
+  <td align="center">69.5</td>
+  <td align="center">55.4</td>
+  <td align="center">80.5</td>
+  <td align="center">42.5</td>
+  <td align="center">61.9</td>
+  <td align="center"><u>61.7</u></td>
+  <td align="center"><u>64.5</u></td>
+  <td align="center"><strong>7.7</strong></td>
+  <td align="center"><u>39.9</u></td>
+  <td align="center"><u>37.4</u></td>
+</tr>
+
+<!-- Visual Spacer -->
+<tr><td colspan="11"> </td></tr>
+
+<!-- Large Models -->
+<tr>
+  <td><strong>Qwen3-14B</strong></td>
+  <td align="center"><strong>86.7</strong></td>
+  <td align="center"><strong>74.0</strong></td>
+  <td align="center">93.9</td>
+  <td align="center">52.0</td>
+  <td align="center"><strong>76.8</strong></td>
+  <td align="center"><strong>77.2</strong></td>
+  <td align="center"><strong>75.4</strong></td>
+  <td align="center">6.4</td>
+  <td align="center"><strong>64.5</strong></td>
+  <td align="center"><strong>48.8</strong></td>
+</tr>
+<tr>
+  <td><strong>Llama-3.1-8B-inst</strong></td>
+  <td align="center">59.9</td>
+  <td align="center">48.6</td>
+  <td align="center">77.4</td>
+  <td align="center">31.5</td>
+  <td align="center">51.5</td>
+  <td align="center">40.1</td>
+  <td align="center">26.0</td>
+  <td align="center">2.4</td>
+  <td align="center">30.9</td>
+  <td align="center">19.8</td>
+</tr>
+<tr>
+  <td><strong>Exaone-3.5-7.8B-inst</strong></td>
+  <td align="center"><u>73.5</u></td>
+  <td align="center"><u>61.9</u></td>
+  <td align="center"><u>92.0</u></td>
+  <td align="center">44.0</td>
+  <td align="center">67.2</td>
+  <td align="center">64.6</td>
+  <td align="center">60.3</td>
+  <td align="center"><strong>8.6</strong></td>
+  <td align="center">49.7</td>
+  <td align="center">39.5</td>
+</tr>
+<tr>
+  <td><strong>Mi:dm 2.0-Base-inst</strong></td>
+  <td align="center"><u>86.5</u></td>
+  <td align="center"><u>70.8</u></td>
+  <td align="center"><strong>95.2</strong></td>
+  <td align="center"><strong>53.0</strong></td>
+  <td align="center"><u>76.1</u></td>
+  <td align="center"><u>75.1</u></td>
+  <td align="center"><u>73.0</u></td>
+  <td align="center"><strong>8.6</strong></td>
+  <td align="center"><u>52.9</u></td>
+  <td align="center"><u>44.8</u></td>
+</tr>
+</table>
+
+`*` indicates KT proprietary evaluation resources.
+
+<br>
+
+
 #### English
 
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="2"><b>Benchmark</b></th>
-      <th>Exaone-3.5-2.4B-inst</th>
-      <th>Qwen3-4B</th>
-      <th>Mi:dm 2.0-Mini-inst</th>
-      <th>Exaone-3.5-7.8B-inst</th>
-      <th>Qwen3-14B</th>
-      <th>Llama-3.1-8B-inst</th>
-      <th>Mi:dm 2.0-Base-inst</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="1"><b>Instruction Following</b></td>
-      <td><b>IFEval</b></td>
-      <td align="center">81.1</td>
-      <td align="center">79.7</td>
-      <td align="center">73.6</td>
-      <td align="center">83.6</td>
-      <td align="center">83.9</td>
-      <td align="center">79.9</td>
-      <td align="center"><b>84.0</b></td>
-    </tr>
-    <tr>
-      <td rowspan="4"><b>Reasoning</b></td>
-      <td><b>BBH</b></td>
-      <td align="center">46.4</td>
-      <td align="center">79.0</td>
-      <td align="center">44.5</td>
-      <td align="center">50.1</td>
-      <td align="center">83.4</td>
-      <td align="center">60.3</td>
-      <td align="center"><b>77.7</b></td>
-    </tr>
-    <tr>
-      <td><b>GPQA</b></td>
-      <td align="center">28.1</td>
-      <td align="center">39.8</td>
-      <td align="center">26.6</td>
-      <td align="center">33.1</td>
-      <td align="center">49.8</td>
-      <td align="center">21.6</td>
-      <td align="center"><b>33.5</b></td>
-    </tr>
-    <tr>
-      <td><b>MuSR</b></td>
-      <td align="center">49.7</td>
-      <td align="center">58.5</td>
-      <td align="center">51.7</td>
-      <td align="center">51.2</td>
-      <td align="center">57.7</td>
-      <td align="center">50.3</td>
-      <td align="center"><b>51.9</b></td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">41.4</td>
-      <td align="center">59.1</td>
-      <td align="center">40.9</td>
-      <td align="center">44.8</td>
-      <td align="center">63.6</td>
-      <td align="center">44.1</td>
-      <td align="center"><b>54.4</b></td>
-    </tr>
-    <tr>
-      <td rowspan="2"><b>Mathematics</b></td>
-      <td><b>GSM8K</b></td>
-      <td align="center">82.5</td>
-      <td align="center">90.4</td>
-      <td align="center">83.1</td>
-      <td align="center">81.1</td>
-      <td align="center">88.0</td>
-      <td align="center">81.2</td>
-      <td align="center"><b>91.6</b></td>
-    </tr>
-    <tr>
-      <td><b>MBPP+</b></td>
-      <td align="center">59.8</td>
-      <td align="center">62.4</td>
-      <td align="center">60.9</td>
-      <td align="center">79.4</td>
-      <td align="center">73.4</td>
-      <td align="center">81.8</td>
-      <td align="center"><b>77.5</b></td>
-    </tr>
-    <tr>
-      <td rowspan="3"><b>General Knowledge</b></td>
-      <td><b>MMLU-pro</b></td>
-      <td align="center">-</td>
-      <td align="center">-</td>
-      <td align="center">-</td>
-      <td align="center">40.7</td>
-      <td align="center">70.5</td>
-      <td align="center">47.6</td>
-      <td align="center"><b>53.3</b></td>
-    </tr>
-    <tr>
-      <td><b>MMLU</b></td>
-      <td align="center">59.5</td>
-      <td align="center">73.3</td>
-      <td align="center">56.5</td>
-      <td align="center">69.0</td>
-      <td align="center">82.7</td>
-      <td align="center">70.7</td>
-      <td align="center"><b>73.7</b></td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">59.5</td>
-      <td align="center">73.3</td>
-      <td align="center">56.5</td>
-      <td align="center">54.8</td>
-      <td align="center"><b>76.6</b></td>
-      <td align="center">59.2</td>
-      <td align="center">63.5</td>
-    </tr>
-  </tbody>
+<tr>
+  <th rowspan="2" align="center">Model</th>
+  <th align="center">Instruction</th>
+  <th colspan="4" align="center">Reasoning</th>
+  <th align="center">Math</th>
+  <th align="center">Coding</th>
+  <th colspan="3" align="center">General Knowledge</th>
+</tr>
+<tr>
+  <th align="center">IFEval</th>
+  <th align="center">BBH</th>
+  <th align="center">GPQA</th>
+  <th align="center">MuSR</th>
+  <th align="center">Avg.</th>
+  <th align="center">GSM8K</th>
+  <th align="center">MBPP+</th>
+  <th align="center">MMLU-pro</th>
+  <th align="center">MMLU</th>
+  <th align="center">Avg.</th>
+</tr>
+
+<!-- Small Models -->
+<tr>
+  <td><strong>Qwen3-4B</strong></td>
+  <td align="center"><u>79.7</u></td>
+  <td align="center"><strong>79.0</strong></td>
+  <td align="center"><u>39.8</u></td>
+  <td align="center"><strong>58.5</strong></td>
+  <td align="center"><strong>59.1</strong></td>
+  <td align="center"><strong>90.4</strong></td>
+  <td align="center"><u>62.4</u></td>
+  <td align="center">-</td>
+  <td align="center"><strong>73.3</strong></td>
+  <td align="center"><strong>73.3</strong></td>
+</tr>
+<tr>
+  <td><strong>Exaone-3.5-2.4B-inst</strong></td>
+  <td align="center"><strong>81.1</strong></td>
+  <td align="center">46.4</td>
+  <td align="center">28.1</td>
+  <td align="center">49.7</td>
+  <td align="center">41.4</td>
+  <td align="center"><u>82.5</u></td>
+  <td align="center">59.8</td>
+  <td align="center">-</td>
+  <td align="center">59.5</td>
+  <td align="center">59.5</td>
+</tr>
+<tr>
+  <td><strong>Mi:dm 2.0-Mini-inst</strong></td>
+  <td align="center">73.6</td>
+  <td align="center"><u>44.5</u></td>
+  <td align="center">26.6</td>
+  <td align="center"><u>51.7</u></td>
+  <td align="center"><u>40.9</u></td>
+  <td align="center">83.1</td>
+  <td align="center"><strong>60.9</strong></td>
+  <td align="center">-</td>
+  <td align="center">56.5</td>
+  <td align="center">56.5</td>
+</tr>
+
+<tr><td colspan="11">&nbsp;</td></tr>
+
+<!-- Large Models -->
+<tr>
+  <td><strong>Qwen3-14B</strong></td>
+  <td align="center"><u>83.9</u></td>
+  <td align="center"><strong>83.4</strong></td>
+  <td align="center"><strong>49.8</strong></td>
+  <td align="center"><strong>57.7</strong></td>
+  <td align="center"><strong>63.6</strong></td>
+  <td align="center">88.0</td>
+  <td align="center">73.4</td>
+  <td align="center"><strong>70.5</strong></td>
+  <td align="center"><strong>82.7</strong></td>
+  <td align="center"><strong>76.6</strong></td>
+</tr>
+<tr>
+  <td><strong>Llama-3.1-8B-inst</strong></td>
+  <td align="center">79.9</td>
+  <td align="center"><u>60.3</u></td>
+  <td align="center">21.6</td>
+  <td align="center">50.3</td>
+  <td align="center">44.1</td>
+  <td align="center">81.2</td>
+  <td align="center"><strong>81.8</strong></td>
+  <td align="center">47.6</td>
+  <td align="center"><u>70.7</u></td>
+  <td align="center"><u>59.2</u></td>
+</tr>
+<tr>
+  <td><strong>Exaone-3.5-7.8B-inst</strong></td>
+  <td align="center">83.6</td>
+  <td align="center">50.1</td>
+  <td align="center"><u>33.1</u></td>
+  <td align="center"><u>51.2</u></td>
+  <td align="center"><u>44.8</u></td>
+  <td align="center">81.1</td>
+  <td align="center">79.4</td>
+  <td align="center">40.7</td>
+  <td align="center">69.0</td>
+  <td align="center">54.8</td>
+</tr>
+<tr>
+  <td><strong>Mi:dm 2.0-Base-inst</strong></td>
+  <td align="center"><strong>84.0</strong></td>
+  <td align="center">77.7</td>
+  <td align="center">33.5</td>
+  <td align="center">51.9</td>
+  <td align="center">54.4</td>
+  <td align="center"><strong>91.6</strong></td>
+  <td align="center"><u>77.5</u></td>
+  <td align="center"><u>53.3</u></td>
+  <td align="center">73.7</td>
+  <td align="center">63.5</td>
+</tr>
 </table>
 
-
-<br>
-
-#### Korean
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="2"><b>Benchmark</b></th>
-      <th>Exaone-3.5-2.4B-inst</th>
-      <th>Qwen3-4B</th>
-      <th>Mi:dm 2.0-Mini-inst</th>
-      <th>Exaone-3.5-7.8B-inst</th>
-      <th>Qwen3-14B</th>
-      <th>Llama-3.1-8B-inst</th>
-      <th>Mi:dm 2.0-Base-inst</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Comprehension -->
-    <tr>
-      <td rowspan="5"><b>Comprehension</b></td>
-      <td><b>K-Prag*</b></td>
-      <td align="center">68.7</td>
-      <td align="center">73.9</td>
-      <td align="center">69.5</td>
-      <td align="center">73.5</td>
-      <td align="center"><b>86.7</b></td>
-      <td align="center">59.9</td>
-      <td align="center">86.5</td>
-    </tr>
-    <tr>
-      <td><b>K-Refer-Hard*</b></td>
-      <td align="center">58.5</td>
-      <td align="center">56.7</td>
-      <td align="center">55.4</td>
-      <td align="center">61.9</td>
-      <td align="center"><b>74.0</b></td>
-      <td align="center">48.6</td>
-      <td align="center">70.8</td>
-    </tr>
-    <tr>
-      <td><b>Ko-Best</b></td>
-      <td align="center">87.2</td>
-      <td align="center">91.5</td>
-      <td align="center">80.5</td>
-      <td align="center">92.0</td>
-      <td align="center">93.9</td>
-      <td align="center">77.4</td>
-      <td align="center"><b>95.2</b></td>
-    </tr>
-    <tr>
-      <td><b>Ko-Sovereign*</b></td>
-      <td align="center">38.0</td>
-      <td align="center">43.5</td>
-      <td align="center">42.5</td>
-      <td align="center">44.0</td>
-      <td align="center">52.0</td>
-      <td align="center">31.5</td>
-      <td align="center"><b>53.0</b></td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">62.5</td>
-      <td align="center">66.6</td>
-      <td align="center">61.9</td>
-      <td align="center">67.2</td>
-      <td align="center"><b>76.8</b></td>
-      <td align="center">51.5</td>
-      <td align="center">76.1</td>
-    </tr>
-    <tr>
-      <td rowspan="5"><b>Reasoning</b></td>
-      <td><b>Ko-Winogrande</b></td>
-      <td align="center">60.3</td>
-      <td align="center"><b>67.5</b></td>
-      <td align="center">61.7</td>
-      <td align="center">64.6</td>
-      <td align="center">77.2</td>
-      <td align="center">40.1</td>
-      <td align="center">75.1</td>
-    </tr>
-    <tr>
-      <td><b>Ko-Best</b></td>
-      <td align="center">64.1</td>
-      <td align="center"><b>69.2</b></td>
-      <td align="center">64.5</td>
-      <td align="center">60.3</td>
-      <td align="center">75.4</td>
-      <td align="center">26.0</td>
-      <td align="center">73.0</td>
-    </tr>
-    <tr>
-      <td><b>LogicKor*</b></td>
-      <td align="center"><b>7.4</b></td>
-      <td align="center">5.6</td>
-      <td align="center">7.7</td>
-      <td align="center">8.6</td>
-      <td align="center">6.4</td>
-      <td align="center">2.4</td>
-      <td align="center">8.6</td>
-    </tr>
-    <tr>
-      <td><b>HRM8K*</b></td>
-      <td align="center">38.5</td>
-      <td align="center"><b>56.7</b></td>
-      <td align="center">39.9</td>
-      <td align="center">49.7</td>
-      <td align="center">64.5</td>
-      <td align="center">30.9</td>
-      <td align="center">52.9</td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">36.7</td>
-      <td align="center"><b>43.8</b></td>
-      <td align="center">37.4</td>
-      <td align="center">39.5</td>
-      <td align="center">48.8</td>
-      <td align="center">19.8</td>
-      <td align="center">44.8</td>
-    </tr>
-    <!-- Society & Culture -->
-    <tr>
-      <td rowspan="5"><b>Society & Culture</b></td>
-      <td><b>K-Refer*</b></td>
-      <td align="center">64.0</td>
-      <td align="center">53.6</td>
-      <td align="center">66.4</td>
-      <td align="center">71.6</td>
-      <td align="center">72.4</td>
-      <td align="center">43.2</td>
-      <td align="center"><b>89.6</b></td>
-    </tr>
-    <tr>
-      <td><b>K-Refer-Hard*</b></td>
-      <td align="center">67.1</td>
-      <td align="center">42.9</td>
-      <td align="center">61.4</td>
-      <td align="center">69.3</td>
-      <td align="center">65.7</td>
-      <td align="center">36.4</td>
-      <td align="center"><b>86.4</b></td>
-    </tr>
-    <tr>
-      <td><b>Ko-Sovereign*</b></td>
-      <td align="center">44.4</td>
-      <td align="center">35.8</td>
-      <td align="center">36.7</td>
-      <td align="center">46.9</td>
-      <td align="center"><b>49.8</b></td>
-      <td align="center">33.8</td>
-      <td align="center">56.3</td>
-    </tr>
-    <tr>
-      <td><b>HAERAE*</b></td>
-      <td align="center">61.3</td>
-      <td align="center">50.6</td>
-      <td align="center">70.8</td>
-      <td align="center">72.9</td>
-      <td align="center">68.4</td>
-      <td align="center">49.5</td>
-      <td align="center"><b>81.5</b></td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">59.2</td>
-      <td align="center">45.7</td>
-      <td align="center">58.8</td>
-      <td align="center">65.2</td>
-      <td align="center">64.1</td>
-      <td align="center">40.7</td>
-      <td align="center"><b>78.4</b></td>
-    </tr>
-    <!-- Reasoning (Domain) -->
-    <tr>
-      <td rowspan="3"><b>Reasoning (Domain)</b></td>
-      <td><b>KMMLU</b></td>
-      <td align="center">43.5</td>
-      <td align="center">50.6</td>
-      <td align="center">45.1</td>
-      <td align="center">52.6</td>
-      <td align="center">55.4</td>
-      <td align="center">33.0</td>
-      <td align="center"><b>57.3</b></td>
-    </tr>
-    <tr>
-      <td><b>Ko-Sovereign*</b></td>
-      <td align="center">42.4</td>
-      <td align="center">42.5</td>
-      <td align="center">42.4</td>
-      <td align="center">45.6</td>
-      <td align="center">54.7</td>
-      <td align="center">36.7</td>
-      <td align="center"><b>58.0</b></td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">43.0</td>
-      <td align="center">46.5</td>
-      <td align="center">43.8</td>
-      <td align="center">49.1</td>
-      <td align="center">55.1</td>
-      <td align="center">34.8</td>
-      <td align="center"><b>57.7</b></td>
-    </tr>
-    <!-- Instruction Following -->
-    <tr>
-      <td rowspan="3"><b>Instruction Following</b></td>
-      <td><b>Ko-IFEval*</b></td>
-      <td align="center">65.4</td>
-      <td align="center">75.9</td>
-      <td align="center">73.3</td>
-      <td align="center">69.1</td>
-      <td align="center"><b>83.6</b></td>
-      <td align="center">60.1</td>
-      <td align="center">82.0</td>
-    </tr>
-    <tr>
-      <td><b>Ko-MTBench</b></td>
-      <td align="center">74.0</td>
-      <td align="center">63.0</td>
-      <td align="center">74.0</td>
-      <td align="center">79.6</td>
-      <td align="center">71.0</td>
-      <td align="center">57.0</td>
-      <td align="center"><b>89.7</b></td>
-    </tr>
-    <tr>
-      <td><b>Avg.</b></td>
-      <td align="center">68.9</td>
-      <td align="center">69.4</td>
-      <td align="center">73.6</td>
-      <td align="center">74.4</td>
-      <td align="center">77.3</td>
-      <td align="center">58.5</td>
-      <td align="center"><b>85.9</b></td>
-    </tr>
-  </tbody>
-</table>
-
-`*` indicates KT proprietary evaluation resources.
 
 <br>
 
@@ -632,4 +647,4 @@ Mi:dm 2.0 is licensed under the [MIT License](./LICENSE).
 -->
 
 ### Contact 
-- Mi:dm 2.0 Technical Inquiries: midm-llm@kt.com
+Mi:dm 2.0 Technical Inquiries: midm-llm@kt.com
