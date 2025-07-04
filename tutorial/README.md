@@ -7,7 +7,7 @@ Each guide walks you through a specific task — from fine-tuning to local deplo
 <br>
 
 ## 📘 1. Hands-on Guide to Fine-Tuning Mi:dm 2.0
-Fine-tune Mi:dm 2.0 using `trl` and `SFTTrainer` with the [**SimpleQA-GenX2**](https://huggingface.co/datasets/KT-AI/KT-Simple-QA) dataset — packed with various forms of Korean Q&A.  
+Fine-tune Mi:dm 2.0 using `trl` and `SFTTrainer` with the [**SimpleQA-GenX2**](https://huggingface.co/datasets/K-intelligence/KT-Simple-QA) dataset — packed with various forms of Korean Q&A.  
 👉 [**View Tutorial**](./01_fine-tuning)
 
 <br>
