@@ -47,7 +47,7 @@ import torch; assert torch.cuda.get_device_capability()[0] >= 8, 'Hardware not s
 
 ## 📂 Prepare and Load the Dataset
 
-In our example we’ll use an already existing dataset called [simpleQA-GenX2](https://huggingface.co/datasets/KT-AI/dataset), which contains samples of natural language instructions collected in-house, including various forms of simple Korean QA.
+In our example we’ll use an already existing dataset called [SimpleQA-GenX2](https://huggingface.co/datasets/K-intelligence/KT-Simple-QA), which contains samples of natural language instructions collected in-house, including various forms of simple Korean QA.
 
 With the latest release of `trl` we now support popular instruction and conversation dataset formats.
 
